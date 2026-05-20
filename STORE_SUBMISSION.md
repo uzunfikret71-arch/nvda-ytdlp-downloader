@@ -10,7 +10,7 @@ Bu dosya mağaza başvurusu doldurulurken kullanılacak değerleri özetler.
 - Last tested NVDA version: `2025.3.3`
 - Source URL: `https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader`
 - Download URL: `https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader/releases/download/v1.0.0/ytdlpDownloader-1.0.0.nvda-addon`
-- SHA256: `0063A3D361A84360DBBF8902CC3298AE009F095071D944EF0DD5A55B7A5AD0C9`
+- SHA256: Yayın paketi yeniden üretildikten sonra güncellenecek.
 
 ## Açıklama
 
@@ -18,11 +18,15 @@ NVDA içinden yt-dlp ve FFmpeg kullanarak video veya ses indirmeyi sağlar. Ses 
 
 ## Güvenlik ve bütünlük notu
 
-Eklenti paket içinde `yt-dlp.exe`, `ffmpeg.exe`, `ffprobe.exe` ve `deno.exe` taşır. İndirme penceresi ilk açıldığında paket içindeki `yt-dlp.exe -U` komutu otomatik olarak çalışır. Bu güncelleme kontrolü başarısız olursa indirme özelliği kullanılabilir kalır ve hata günlük alanında gösterilir.
+Eklenti paket içinde `yt-dlp.exe`, `ffmpeg.exe` ve `deno.exe` taşır. `deno.exe`, bazı yt-dlp çıkarıcılarının JavaScript çalıştırma desteği için gerekebileceğinden bağımlılık olarak tutulur. `ffprobe.exe` kullanılmadığı için yayın paketine dahil edilmez.
 
-NVDA Add-on Store SHA256 bütünlüğü yayımlanan `.nvda-addon` dosyası için geçerlidir. `yt-dlp.exe` çalışma zamanında kendini güncelleyebildiği için bu davranış başvuruda açıkça belirtilmelidir.
+Eklenti açılışta otomatik güncelleme veya ağ isteği başlatmaz. Kullanıcı indirme penceresindeki `yt-dlp güncelle` düğmesini seçtiğinde, eklenti internet bağlantısı kullanılacağını ve paket içindeki `yt-dlp.exe` dosyasının güncellenebileceğini açıkça bildirip onay ister. Kullanıcı onay verirse `yt-dlp.exe -U` çalıştırılır. Güncelleme başarısız olursa indirme özelliği kullanılabilir kalır ve hata günlük alanında gösterilir.
+
+NVDA Add-on Store SHA256 bütünlüğü yayımlanan `.nvda-addon` dosyası için geçerlidir. Kullanıcı onaylı `yt-dlp` güncellemesi çalışma zamanında paket içindeki `yt-dlp.exe` dosyasını değiştirebilir; bu davranış başvuruda açıkça belirtilmelidir.
 
 ## Yayın öncesi tamamlanacaklar
 
-- GitHub repo ve release bağlantıları yayınlandıktan sonra tarayıcıdan doğrulanacak.
-- `yt-dlp.exe --version` bu ortamda PyInstaller çıkarma izni hatasıyla başarısız oluyor: `Failed to extract ... __mypyc.cp310-win_amd64.pyd`. Bu düzeltilmeden veya temiz bir kullanıcı ortamında doğrulanmadan mağaza yayını yapılmamalıdır.
+- Yayın paketi yeniden üretilecek.
+- Yeni SHA256 değeri bu dosyaya ve mağaza başvurusuna eklenecek.
+- GitHub repo ve release bağlantıları tarayıcıdan doğrulanacak.
+- `yt-dlp.exe --version`, `ffmpeg.exe -version` ve `deno.exe --version` temiz bir kullanıcı ortamında doğrulanacak.
