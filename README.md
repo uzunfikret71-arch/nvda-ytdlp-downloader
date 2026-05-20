@@ -8,13 +8,13 @@ NVDA içinden yt-dlp ve FFmpeg kullanarak video veya ses indirmeyi sağlayan bir
 - Video indirmeleri için `mp4`, `mkv` ve `webm` çıktı seçenekleri sunar.
 - Ses indirmeleri için `mp3`, `m4a`, `opus`, `flac` ve `wav` çıktı seçenekleri sunar.
 - Ses dosyalarına medya bilgisi ve kapak görseli ekleme seçenekleri sağlar.
-- Paket içinde `yt-dlp.exe`, `ffmpeg.exe`, `ffprobe.exe` ve `deno.exe` bulunur.
+- Paket içinde `yt-dlp.exe`, `ffmpeg.exe` ve `deno.exe` bulunur.
 
-## Otomatik yt-dlp güncellemesi
+## yt-dlp güncellemesi
 
-İndirme penceresi ilk açıldığında eklenti paket içindeki `yt-dlp.exe -U` komutuyla güncelleme kontrolü yapar. Kontrol başarısız olursa durum günlük alanında gösterilir ve indirme özelliği kullanılabilir kalır.
+yt-dlp sık güncellenen bir araç olduğu için bazı sitelerde indirme desteğinin korunması amacıyla eklenti içinden güncelleme yapılabilir.
 
-Bu davranış, NVDA Add-on Store başvurusunda açıkça belirtilmelidir çünkü mağaza paketi SHA256 bütünlüğüyle doğrulanırken `yt-dlp.exe` çalışma zamanında kendini güncelleyebilir.
+Güncelleme otomatik çalışmaz. Kullanıcı indirme penceresindeki `yt-dlp güncelle` düğmesini seçtiğinde eklenti internet bağlantısı ve paket içindeki `yt-dlp.exe` dosyasının güncellenebileceği hakkında onay ister. Kullanıcı onay verirse `yt-dlp.exe -U` çalıştırılır. Güncelleme başarısız olursa durum günlük alanında gösterilir ve indirme özelliği kullanılabilir kalır.
 
 ## Kurulum
 
@@ -30,7 +30,7 @@ Yayın paketini yeniden üretmek ve SHA256 değerini almak için:
 .\scripts\package.ps1
 ```
 
-Betik `.addon` içeriğini temiz bir geçici klasöre kopyalar, `__pycache__` klasörlerini dışarıda bırakır, `dist/ytdlpDownloader-1.0.0.nvda-addon` paketini üretir ve SHA256 değerini yazar.
+Betik `.addon` içeriğini temiz bir geçici klasöre kopyalar, `__pycache__` klasörlerini ve kullanılmayan `ffprobe.exe` dosyasını dışarıda bırakır, `dist/ytdlpDownloader-1.0.0.nvda-addon` paketini üretir ve SHA256 değerini yazar.
 
 ## Yayın durumu
 
