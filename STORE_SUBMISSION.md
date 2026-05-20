@@ -10,7 +10,7 @@ Bu dosya mağaza başvurusu doldurulurken kullanılacak değerleri özetler.
 - Last tested NVDA version: `2025.3.3`
 - Source URL: `https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader`
 - Download URL: `https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader/releases/download/v1.0.0/ytdlpDownloader-1.0.0.nvda-addon`
-- SHA256: Yayın paketi yeniden üretildikten sonra güncellenecek.
+- SHA256: `99C0E8532CB93B89E8EB1DE86E9C91CBCDF94895401E171DD1FA40083530DB44`
 
 ## Açıklama
 
@@ -26,7 +26,7 @@ NVDA Add-on Store SHA256 bütünlüğü yayımlanan `.nvda-addon` dosyası için
 
 ## Yayın öncesi tamamlanacaklar
 
-- Yayın paketi yeniden üretilecek.
-- Yeni SHA256 değeri bu dosyaya ve mağaza başvurusuna eklenecek.
+- Yayın paketi yeniden üretildi.
+- Yeni SHA256 değeri bu dosyaya ve mağaza başvurusuna eklendi.
 - GitHub repo ve release bağlantıları tarayıcıdan doğrulanacak.
 - `yt-dlp.exe --version`, `ffmpeg.exe -version` ve `deno.exe --version` temiz bir kullanıcı ortamında doğrulanacak.
