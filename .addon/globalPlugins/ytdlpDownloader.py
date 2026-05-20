@@ -14,6 +14,7 @@ ADDON_DIR = os.path.dirname(os.path.dirname(__file__))
 BIN_DIR = os.path.join(ADDON_DIR, "bin")
 YTDLP_EXE = os.path.join(BIN_DIR, "yt-dlp.exe")
 FFMPEG_EXE = os.path.join(BIN_DIR, "ffmpeg.exe")
+DENO_EXE = os.path.join(BIN_DIR, "deno.exe")
 
 
 class DownloadDialog(wx.Dialog):
@@ -71,7 +72,9 @@ class DownloadDialog(wx.Dialog):
 
 		buttonSizer = wx.StdDialogButtonSizer()
 		self.startButton = wx.Button(panel, wx.ID_OK, label="İndirmeyi başlat")
+		self.updateButton = wx.Button(panel, label="yt-dlp güncelle")
 		self.closeButton = wx.Button(panel, wx.ID_CANCEL, label="Kapat")
+		buttonSizer.AddButton(self.updateButton)
 		buttonSizer.AddButton(self.startButton)
 		buttonSizer.AddButton(self.closeButton)
 		buttonSizer.Realize()
@@ -81,11 +84,11 @@ class DownloadDialog(wx.Dialog):
 		self.Bind(wx.EVT_RADIOBUTTON, self.onTypeChanged, self.videoRadio)
 		self.Bind(wx.EVT_RADIOBUTTON, self.onTypeChanged, self.audioRadio)
 		self.Bind(wx.EVT_BUTTON, self.onBrowse, self.browseButton)
+		self.Bind(wx.EVT_BUTTON, self.startUpdater, self.updateButton)
 		self.Bind(wx.EVT_BUTTON, self.onStart, self.startButton)
 		self.Bind(wx.EVT_BUTTON, self.onClose, self.closeButton)
 		self.Bind(wx.EVT_CLOSE, self.onClose)
 		self.onTypeChanged(None)
-		wx.CallAfter(self.startUpdater)
 
 	def onTypeChanged(self, event):
 		isAudio = self.audioRadio.GetValue()
@@ -107,15 +110,31 @@ class DownloadDialog(wx.Dialog):
 		if self.closed:
 			return
 		self.startButton.Enable(not busy)
+		self.updateButton.Enable(not busy)
 		self.browseButton.Enable(not busy)
 
-	def startUpdater(self):
+	def buildProcessEnv(self):
+		env = os.environ.copy()
+		env["PATH"] = BIN_DIR + os.pathsep + env.get("PATH", "")
+		return env
+
+	def startUpdater(self, event=None):
 		if self.updateProcess and self.updateProcess.poll() is None:
 			return
 		if self.process and self.process.poll() is None:
+			wx.MessageBox("İndirme devam ederken güncelleme yapılamaz.", "İşlem sürüyor", wx.OK | wx.ICON_WARNING, self)
 			return
 		if not os.path.isfile(YTDLP_EXE):
 			self.appendLog("yt-dlp.exe bulunamadı; güncelleme kontrolü atlandı.\r\n")
+			return
+		answer = wx.MessageBox(
+			"yt-dlp sık güncellendiği için bazı sitelerde indirme sorunlarını gidermek amacıyla güncelleme yapılabilir. "
+			"Bu işlem internet bağlantısı kullanır ve paket içindeki yt-dlp.exe dosyasını güncelleyebilir. Devam etmek istiyor musunuz?",
+			"yt-dlp güncelle",
+			wx.YES_NO | wx.NO_DEFAULT | wx.ICON_QUESTION,
+			self,
+		)
+		if answer != wx.YES:
 			return
 		self.setBusy(True)
 		self.appendLog("yt-dlp güncellemesi kontrol ediliyor...\r\n")
@@ -132,6 +151,7 @@ class DownloadDialog(wx.Dialog):
 				encoding="utf-8",
 				errors="replace",
 				creationflags=subprocess.CREATE_NO_WINDOW,
+				env=self.buildProcessEnv(),
 			)
 			for line in self.updateProcess.stdout:
 				wx.CallAfter(self.appendLog, line)
@@ -151,10 +171,6 @@ class DownloadDialog(wx.Dialog):
 		self.logCtrl.AppendText(text)
 
 	def onStart(self, event):
-		if self.updateProcess and self.updateProcess.poll() is None:
-			wx.MessageBox("Güncelleme kontrolü devam ediyor. Lütfen kısa bir süre sonra tekrar deneyin.", "İşlem sürüyor", wx.OK | wx.ICON_INFORMATION, self)
-			return
-
 		url = self.urlCtrl.GetValue().strip()
 		outputDir = self.outputCtrl.GetValue().strip()
 		if not url:
@@ -171,6 +187,9 @@ class DownloadDialog(wx.Dialog):
 			return
 		if not os.path.isfile(FFMPEG_EXE):
 			wx.MessageBox("ffmpeg.exe eklenti klasöründe bulunamadı.", "Eksik bağımlılık", wx.OK | wx.ICON_ERROR, self)
+			return
+		if not os.path.isfile(DENO_EXE):
+			wx.MessageBox("deno.exe eklenti klasöründe bulunamadı.", "Eksik bağımlılık", wx.OK | wx.ICON_ERROR, self)
 			return
 
 		command = self.buildCommand(url, outputDir)
@@ -214,6 +233,7 @@ class DownloadDialog(wx.Dialog):
 				encoding="utf-8",
 				errors="replace",
 				creationflags=subprocess.CREATE_NO_WINDOW,
+				env=self.buildProcessEnv(),
 			)
 			for line in self.process.stdout:
 				wx.CallAfter(self.appendLog, line)
