@@ -32,6 +32,11 @@ Get-ChildItem -LiteralPath $stageDir -Directory -Recurse -Force |
 	Where-Object { $_.Name -eq "__pycache__" } |
 	ForEach-Object { Remove-Item -LiteralPath $_.FullName -Recurse -Force }
 
+$unusedFfprobe = Join-Path $stageDir "bin\ffprobe.exe"
+if (Test-Path -LiteralPath $unusedFfprobe) {
+	Remove-Item -LiteralPath $unusedFfprobe -Force
+}
+
 if (Test-Path -LiteralPath $packagePath) {
 	Remove-Item -LiteralPath $packagePath -Force
 }
