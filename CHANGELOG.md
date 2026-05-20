@@ -4,6 +4,7 @@
 
 - İlk NVDA Add-on Store hazırlık sürümü.
 - NVDA içinden video ve ses indirme penceresi eklendi.
-- Paket içi yt-dlp ve FFmpeg desteği eklendi.
-- İndirme penceresi ilk açıldığında otomatik yt-dlp güncelleme kontrolü eklendi.
+- Paket içi yt-dlp, FFmpeg ve Deno desteği eklendi.
+- yt-dlp güncellemesi otomatik açılış kontrolü yerine kullanıcı onaylı `yt-dlp güncelle` düğmesine taşındı.
+- Kullanılmayan `ffprobe.exe` yayın paketinden çıkarılacak şekilde paketleme notları güncellendi.
 - Yayın paketi temizleme ve SHA256 üretme betiği eklendi.
