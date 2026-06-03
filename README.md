@@ -18,7 +18,7 @@ Güncelleme otomatik çalışmaz. Kullanıcı indirme penceresindeki `yt-dlp gü
 
 ## Kurulum
 
-1. `dist/ytdlpDownloader-1.0.0.nvda-addon` dosyasını NVDA ile açın.
+1. `dist/ytdlpDownloader-1.0.1.nvda-addon` dosyasını NVDA ile açın.
 2. NVDA'nın eklenti kurulum uyarılarını onaylayın.
 3. NVDA yeniden başlatıldıktan sonra Araçlar menüsünden `yt-dlp ile video veya ses indir...` öğesini kullanın.
 
@@ -30,7 +30,7 @@ Yayın paketini yeniden üretmek ve SHA256 değerini almak için:
 .\scripts\package.ps1
 ```
 
-Betik `.addon` içeriğini temiz bir geçici klasöre kopyalar, `__pycache__` klasörlerini ve kullanılmayan `ffprobe.exe` dosyasını dışarıda bırakır, `dist/ytdlpDownloader-1.0.0.nvda-addon` paketini üretir ve SHA256 değerini yazar.
+Betik `.addon` içeriğini temiz bir geçici klasöre kopyalar, `__pycache__` klasörlerini ve kullanılmayan `ffprobe.exe` dosyasını dışarıda bırakır, `dist/ytdlpDownloader-1.0.1.nvda-addon` paketini üretir ve SHA256 değerini yazar.
 
 ## Yayın durumu
 

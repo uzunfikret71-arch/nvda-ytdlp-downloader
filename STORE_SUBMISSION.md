@@ -4,13 +4,13 @@ Bu dosya mağaza başvurusu doldurulurken kullanılacak değerleri özetler.
 
 - Name: `ytdlpDownloader`
 - Display name: `yt-dlp video ve ses indirici`
-- Version: `1.0.0`
+- Version: `1.0.1`
 - Author: `Fikret Uzun`
 - Minimum NVDA version: `2025.3.3`
 - Last tested NVDA version: `2025.3.3`
 - Source URL: `https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader`
-- Download URL: `https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader/releases/download/v1.0.0/ytdlpDownloader-1.0.0.nvda-addon`
-- SHA256: `99C0E8532CB93B89E8EB1DE86E9C91CBCDF94895401E171DD1FA40083530DB44`
+- Download URL: `https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader/releases/download/v1.0.1/ytdlpDownloader-1.0.1.nvda-addon`
+- SHA256: `BBD4AEDDFB0F0D77EE15F075D3710BCD422EC09883F4670CE42CEB3D952A9417`
 
 ## Açıklama
 
