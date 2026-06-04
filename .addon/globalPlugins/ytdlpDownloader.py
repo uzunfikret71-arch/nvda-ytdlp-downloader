@@ -43,11 +43,11 @@ class DownloadDialog(wx.Dialog):
 		formatSizer = wx.FlexGridSizer(2, 2, 8, 8)
 		formatSizer.AddGrowableCol(1, 1)
 		formatSizer.Add(wx.StaticText(panel, label="Video biçimi:"), 0, wx.ALIGN_CENTER_VERTICAL)
-		self.videoFormat = wx.Choice(panel, choices=["En iyi video (mp4 tercih et)", "mp4", "mkv", "webm"])
+		self.videoFormat = wx.Choice(panel, choices=["En iyi video (mp4 tercih et)", "En iyi video (orijinal)", "mp4", "mkv", "webm"])
 		self.videoFormat.SetSelection(0)
 		formatSizer.Add(self.videoFormat, 1, wx.EXPAND)
 		formatSizer.Add(wx.StaticText(panel, label="Ses biçimi:"), 0, wx.ALIGN_CENTER_VERTICAL)
-		self.audioFormat = wx.Choice(panel, choices=["En iyi ses (webm hariç)", "mp3", "m4a", "opus", "flac", "wav"])
+		self.audioFormat = wx.Choice(panel, choices=["En iyi ses (webm hariç)", "En iyi ses (orijinal)", "mp3", "m4a", "flac", "wav"])
 		self.audioFormat.SetSelection(0)
 		formatSizer.Add(self.audioFormat, 1, wx.EXPAND)
 		mainSizer.Add(formatSizer, 0, wx.EXPAND | wx.ALL, 8)
@@ -212,18 +212,23 @@ class DownloadDialog(wx.Dialog):
 		]
 		if self.audioRadio.GetValue():
 			audioFormat = self.audioFormat.GetStringSelection()
-			command.extend(["-f", "ba[ext!=webm]/ba", "-x"])
-			if audioFormat.startswith("En iyi ses"):
-				command.extend(["--audio-format", "best"])
+			if audioFormat == "En iyi ses (orijinal)":
+				command.extend(["-f", "ba"])
 			else:
-				command.extend(["--audio-format", audioFormat])
+				command.extend(["-f", "ba[ext!=webm]/ba", "-x"])
+				if audioFormat.startswith("En iyi ses"):
+					command.extend(["--audio-format", "best"])
+				else:
+					command.extend(["--audio-format", audioFormat])
 			if self.metadataCheck.GetValue():
 				command.append("--add-metadata")
 			if self.thumbnailCheck.GetValue():
 				command.append("--embed-thumbnail")
 		else:
 			videoFormat = self.videoFormat.GetStringSelection()
-			if videoFormat.startswith("En iyi video"):
+			if videoFormat == "En iyi video (orijinal)":
+				command.extend(["-f", "bv*+ba/b"])
+			elif videoFormat.startswith("En iyi video"):
 				command.extend(["-f", "bv*[ext=mp4]+ba[ext!=webm]/b[ext=mp4]/bv*+ba[ext!=webm]/b", "--merge-output-format", "mp4"])
 			else:
 				command.extend(["-f", "bv*+ba/b", "--merge-output-format", videoFormat])
