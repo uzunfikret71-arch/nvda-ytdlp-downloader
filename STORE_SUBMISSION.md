@@ -4,13 +4,13 @@ Bu dosya mağaza başvurusu doldurulurken kullanılacak değerleri özetler.
 
 - Name: `ytdlpDownloader`
 - Display name: `yt-dlp video ve ses indirici`
-- Version: `1.0.1`
+- Version: `1.1.0`
 - Author: `Fikret Uzun`
 - Minimum NVDA version: `2025.3.3`
-- Last tested NVDA version: `2025.3.3`
+- Last tested NVDA version: `2026.1.1`
 - Source URL: `https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader`
-- Download URL: `https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader/releases/download/v1.0.1/ytdlpDownloader-1.0.1.nvda-addon`
-- SHA256: `BBD4AEDDFB0F0D77EE15F075D3710BCD422EC09883F4670CE42CEB3D952A9417`
+- Download URL: `https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader/releases/download/v1.1.0/ytdlpDownloader-1.1.0.nvda-addon`
+- SHA256: `32F8B54BBF4854A8D95573FF91CCC1D242D08C1FBC2047B7C8BB22400398254D`
 
 ## Açıklama
 
@@ -28,5 +28,5 @@ NVDA Add-on Store SHA256 bütünlüğü yayımlanan `.nvda-addon` dosyası için
 
 - Yayın paketi yeniden üretildi.
 - Yeni SHA256 değeri bu dosyaya ve mağaza başvurusuna eklendi.
-- GitHub repo ve release bağlantıları tarayıcıdan doğrulanacak.
+- GitHub repo ve release bağlantıları doğrulandı.
 - `yt-dlp.exe --version`, `ffmpeg.exe -version` ve `deno.exe --version` temiz bir kullanıcı ortamında doğrulanacak.
