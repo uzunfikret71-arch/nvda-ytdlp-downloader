@@ -1,5 +1,14 @@
 # Değişiklik günlüğü
 
+## 1.1.1 - 2026-08-13
+
+- Eklentinin yüklenmesini engelleyen bozuk Python kaynak yapısı düzeltildi.
+- İndirme klasörü kalıcı olarak kaydedilip sonraki açılışlarda geri yükleniyor.
+- Pencere ve menü adı `Video ve Ses İndirici` olarak sadeleştirildi.
+- Aynı anda birden fazla pencere veya işlem başlatılması engellendi.
+- Pencere kapanışı ve çalışan alt süreçlerin sonlandırılması kararlı hâle getirildi.
+- Video ve ses biçimi komutları ile hata kontrolleri iyileştirildi.
+
 ## 1.1.0 - 2026-06-04
 
 - Ses ve video indirme seçeneklerine orijinal en iyi kalite seçenekleri eklendi.

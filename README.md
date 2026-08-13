@@ -18,10 +18,10 @@ Güncelleme otomatik çalışmaz. Kullanıcı indirme penceresindeki `yt-dlp gü
 
 ## Kurulum
 
-1. `ytdlpDownloader-1.1.0.nvda-addon` dosyasını son GitHub yayınından indirin.
+1. `ytdlpDownloader-1.1.1.nvda-addon` dosyasını son GitHub yayınından indirin.
 2. İndirilen `.nvda-addon` dosyasını NVDA ile açın.
 3. NVDA'nın eklenti kurulum uyarılarını onaylayın.
-4. NVDA yeniden başlatıldıktan sonra Araçlar menüsünden `yt-dlp ile video veya ses indir...` öğesini kullanın.
+4. NVDA yeniden başlatıldıktan sonra Araçlar menüsünden `Video veya ses indir...` öğesini kullanın.
 
 ## Paketleme
 
@@ -31,7 +31,7 @@ Yayın paketini yeniden üretmek ve SHA256 değerini almak için:
 .\scripts\package.ps1
 ```
 
-Betik `.addon` içeriğini temiz bir geçici klasöre kopyalar, `__pycache__` klasörlerini ve kullanılmayan `ffprobe.exe` dosyasını dışarıda bırakır, `dist/ytdlpDownloader-1.1.0.nvda-addon` paketini üretir ve SHA256 değerini yazar.
+Betik `.addon` içeriğini temiz bir geçici klasöre kopyalar, `__pycache__` klasörlerini ve kullanılmayan `ffprobe.exe` dosyasını dışarıda bırakır, `dist/ytdlpDownloader-1.1.1.nvda-addon` paketini üretir ve SHA256 değerini yazar.
 
 Yayın paketi üretmeden önce `.addon\bin` klasöründe şu dosyaların bulunduğundan emin olun:
 
@@ -47,7 +47,7 @@ https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader
 
 Son yayın:
 
-https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader/releases/tag/v1.1.0
+https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader/releases/tag/v1.1.1
 
 ## Lisans
 

@@ -1,5 +1,6 @@
 build/
 dist/
+.addon/bin/
 *.zip
 __pycache__/
 *.pyc
