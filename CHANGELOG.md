@@ -1,5 +1,10 @@
 # Değişiklik günlüğü
 
+## 1.2.0 - 2026-08-26
+
+- Oynatma listesi bağlantılarındaki tüm öğelerin indirilmesi sağlandı.
+- Oynatma listesi öğelerine dosya adında sıra numarası eklendi.
+
 ## 1.1.1 - 2026-08-13
 
 - Eklentinin yüklenmesini engelleyen bozuk Python kaynak yapısı düzeltildi.
