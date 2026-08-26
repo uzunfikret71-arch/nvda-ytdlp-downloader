@@ -19,7 +19,7 @@ Güncelleme otomatik çalışmaz. Kullanıcı indirme penceresindeki `yt-dlp gü
 
 ## Kurulum
 
-1. Yayımlanan en güncel `ytdlpDownloader-<sürüm>.nvda-addon` dosyasını GitHub yayınlarından indirin.
+1. Yayımlanan en güncel `Video-ve-Ses-Indirici-<sürüm>.nvda-addon` dosyasını GitHub yayınlarından indirin.
 2. İndirilen `.nvda-addon` dosyasını NVDA ile açın.
 3. NVDA'nın eklenti kurulum uyarılarını onaylayın.
 4. NVDA yeniden başlatıldıktan sonra Araçlar menüsünden `Video veya ses indir...` öğesini kullanın.
