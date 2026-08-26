@@ -9,7 +9,7 @@ Bu dosya mağaza başvurusu doldurulurken kullanılacak değerleri özetler.
 - Minimum NVDA version: `2025.3.3`
 - Last tested NVDA version: `2026.1.1`
 - Source URL: `https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader`
-- Download URL: `https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader/releases/download/v1.2.1/ytdlpDownloader-1.2.1.nvda-addon`
+- Download URL: `https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader/releases/download/v1.2.1/Video-ve-Ses-Indirici-1.2.1.nvda-addon`
 - Yerel yayın adayı SHA256: `74219F991027F0A4CAA1A6E7543BD326168B68CF5BCCCC882AE3096D3EE17B09`
 - License: `GPL v2 or later`
 - License URL: `https://www.gnu.org/licenses/gpl-2.0.html`
