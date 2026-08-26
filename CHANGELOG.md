@@ -2,6 +2,7 @@
 
 ## 1.2.1 - 2026-08-26
 
+- Yayın paketi dosya adı `Video-ve-Ses-Indirici-1.2.1.nvda-addon` olarak değiştirildi.
 - Oynatma listesi davranışı değiştirilmeden korundu.
 - WebM hariç otomatik ses seçimi gerçekten `ext!=webm` ile sınırlandı; bu seçimde ses çıkarma veya biçim dönüştürme işlemi kaldırıldı.
 - Kapak görseli ön denetimi indirilecek kaynak ses kapsayıcısını kontrol edecek şekilde eşitlendi. Desteklenmeyen bir kapsayıcı algılanırsa kullanıcıya kapaksız devam etme seçeneği sunulur.
