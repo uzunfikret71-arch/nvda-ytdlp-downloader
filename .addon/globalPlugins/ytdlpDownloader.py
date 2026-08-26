@@ -57,7 +57,7 @@ class DownloadDialog(wx.Dialog):
 		panel = wx.Panel(self)
 		mainSizer = wx.BoxSizer(wx.VERTICAL)
 
-		mainSizer.Add(wx.StaticText(panel, label=_("Video adresi:")), 0, wx.ALL, 8)
+		mainSizer.Add(wx.StaticText(panel, label=_("Video veya oynatma listesi adresi:")), 0, wx.ALL, 8)
 		self.urlCtrl = wx.TextCtrl(panel)
 		mainSizer.Add(self.urlCtrl, 0, wx.EXPAND | wx.LEFT | wx.RIGHT | wx.BOTTOM, 8)
 
@@ -207,7 +207,7 @@ class DownloadDialog(wx.Dialog):
 		url = self.urlCtrl.GetValue().strip()
 		outputDir = self.outputCtrl.GetValue().strip()
 		if not url:
-			wx.MessageBox(_("Lütfen indirilecek video adresini yazın."), _("Eksik bilgi"), wx.OK | wx.ICON_WARNING, self)
+			wx.MessageBox(_("Lütfen indirilecek video veya oynatma listesi adresini yazın."), _("Eksik bilgi"), wx.OK | wx.ICON_WARNING, self)
 			return
 		if not outputDir:
 			wx.MessageBox(_("Lütfen Klasör seç düğmesiyle hedef klasörü seçin."), _("Eksik bilgi"), wx.OK | wx.ICON_WARNING, self)
@@ -232,9 +232,8 @@ class DownloadDialog(wx.Dialog):
 			YTDLP_EXE,
 			"--ffmpeg-location", BIN_DIR,
 			"--windows-filenames",
-			"--no-playlist",
 			"-P", outputDir,
-			"-o", "%(title)s.%(ext)s",
+			"-o", "%(playlist_index&{} - |)s%(title)s.%(ext)s",
 		]
 		if self.audioRadio.GetValue():
 			audioSelection = self.audioFormat.GetSelection()

@@ -5,6 +5,7 @@ NVDA içinden yt-dlp ve FFmpeg kullanarak video veya ses indirmeyi sağlayan bir
 ## Özellikler
 
 - NVDA Araçlar menüsünden veya `NVDA+Shift+Y` kısayoluyla indirme penceresini açar.
+- Tek video ve oynatma listesi bağlantılarını destekler; oynatma listesi öğelerini sıra numarasıyla kaydeder.
 - Video indirmeleri için `mp4`, `mkv` ve `webm` çıktı seçenekleri sunar.
 - Ses indirmeleri için `mp3`, `m4a`, `flac` ve `wav` çıktı seçenekleri sunar.
 - Ses dosyalarına medya bilgisi ve kapak görseli ekleme seçenekleri sağlar.
@@ -18,7 +19,7 @@ Güncelleme otomatik çalışmaz. Kullanıcı indirme penceresindeki `yt-dlp gü
 
 ## Kurulum
 
-1. `ytdlpDownloader-1.1.1.nvda-addon` dosyasını son GitHub yayınından indirin.
+1. `ytdlpDownloader-1.2.0.nvda-addon` dosyasını son GitHub yayınından indirin.
 2. İndirilen `.nvda-addon` dosyasını NVDA ile açın.
 3. NVDA'nın eklenti kurulum uyarılarını onaylayın.
 4. NVDA yeniden başlatıldıktan sonra Araçlar menüsünden `Video veya ses indir...` öğesini kullanın.
@@ -31,7 +32,7 @@ Yayın paketini yeniden üretmek ve SHA256 değerini almak için:
 .\scripts\package.ps1
 ```
 
-Betik `.addon` içeriğini temiz bir geçici klasöre kopyalar, `__pycache__` klasörlerini ve kullanılmayan `ffprobe.exe` dosyasını dışarıda bırakır, `dist/ytdlpDownloader-1.1.1.nvda-addon` paketini üretir ve SHA256 değerini yazar.
+Betik `.addon` içeriğini temiz bir geçici klasöre kopyalar, `__pycache__` klasörlerini ve kullanılmayan `ffprobe.exe` dosyasını dışarıda bırakır, `dist/ytdlpDownloader-1.2.0.nvda-addon` paketini üretir ve SHA256 değerini yazar.
 
 Yayın paketi üretmeden önce `.addon\bin` klasöründe şu dosyaların bulunduğundan emin olun:
 
@@ -47,7 +48,7 @@ https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader
 
 Son yayın:
 
-https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader/releases/tag/v1.1.1
+https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader/releases/tag/v1.2.0
 
 ## Lisans
 
