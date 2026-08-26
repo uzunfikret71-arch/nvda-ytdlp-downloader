@@ -1,5 +1,5 @@
 param(
-	[string]$Version = "1.2.0"
+	[string]$Version = "1.2.1"
 )
 
 $ErrorActionPreference = "Stop"
@@ -16,6 +16,18 @@ if (-not (Test-Path -LiteralPath $addonDir)) {
 	throw "Add-on directory not found: $addonDir"
 }
 
+$manifestPath = Join-Path $addonDir "manifest.ini"
+$manifestVersionLine = Get-Content -LiteralPath $manifestPath -Encoding UTF8 |
+	Where-Object { $_ -match '^version\s*=\s*(.+)\s*$' } |
+	Select-Object -First 1
+if (-not $manifestVersionLine) {
+	throw "Version not found in manifest: $manifestPath"
+}
+$manifestVersion = ([regex]::Match($manifestVersionLine, '^version\s*=\s*(.+?)\s*$')).Groups[1].Value
+if ($Version -ne $manifestVersion) {
+	throw "Package version '$Version' does not match manifest version '$manifestVersion'."
+}
+
 New-Item -ItemType Directory -Force -Path $distDir | Out-Null
 New-Item -ItemType Directory -Force -Path $buildDir | Out-Null
 
@@ -27,6 +39,12 @@ New-Item -ItemType Directory -Force -Path $stageDir | Out-Null
 Get-ChildItem -LiteralPath $addonDir -Force | ForEach-Object {
 	Copy-Item -LiteralPath $_.FullName -Destination $stageDir -Recurse -Force
 }
+
+# License and third-party notices must travel with the installed add-on, not
+# only live beside the source repository.
+Copy-Item -LiteralPath (Join-Path $root "LICENSE") -Destination (Join-Path $stageDir "LICENSE.txt") -Force
+Copy-Item -LiteralPath (Join-Path $root "THIRD_PARTY_NOTICES.md") -Destination $stageDir -Force
+Copy-Item -LiteralPath (Join-Path $root "thirdPartyLicenses") -Destination $stageDir -Recurse -Force
 
 Get-ChildItem -LiteralPath $stageDir -Directory -Recurse -Force |
 	Where-Object { $_.Name -eq "__pycache__" } |
