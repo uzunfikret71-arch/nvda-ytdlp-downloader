@@ -1,4 +1,4 @@
-# yt-dlp video ve ses indirici
+# Video ve Ses İndirici
 
 NVDA içinden yt-dlp ve FFmpeg kullanarak video veya ses indirmeyi sağlayan bir NVDA eklentisi.
 
@@ -19,7 +19,7 @@ Güncelleme otomatik çalışmaz. Kullanıcı indirme penceresindeki `yt-dlp gü
 
 ## Kurulum
 
-1. `ytdlpDownloader-1.2.0.nvda-addon` dosyasını son GitHub yayınından indirin.
+1. Yayımlanan en güncel `ytdlpDownloader-<sürüm>.nvda-addon` dosyasını GitHub yayınlarından indirin.
 2. İndirilen `.nvda-addon` dosyasını NVDA ile açın.
 3. NVDA'nın eklenti kurulum uyarılarını onaylayın.
 4. NVDA yeniden başlatıldıktan sonra Araçlar menüsünden `Video veya ses indir...` öğesini kullanın.
@@ -32,7 +32,7 @@ Yayın paketini yeniden üretmek ve SHA256 değerini almak için:
 .\scripts\package.ps1
 ```
 
-Betik `.addon` içeriğini temiz bir geçici klasöre kopyalar, `__pycache__` klasörlerini ve kullanılmayan `ffprobe.exe` dosyasını dışarıda bırakır, `dist/ytdlpDownloader-1.2.0.nvda-addon` paketini üretir ve SHA256 değerini yazar.
+Betik `.addon` içeriğini temiz bir geçici klasöre kopyalar, `__pycache__` klasörlerini ve kullanılmayan `ffprobe.exe` dosyasını dışarıda bırakır, manifest sürümüyle adlandırılmış paketi üretir ve SHA256 değerini yazar.
 
 Yayın paketi üretmeden önce `.addon\bin` klasöründe şu dosyaların bulunduğundan emin olun:
 
@@ -52,4 +52,4 @@ https://github.com/uzunfikret71-arch/nvda-ytdlp-downloader/releases/tag/v1.2.0
 
 ## Lisans
 
-Bu eklenti `GPL-2.0-or-later` lisansı ile dağıtılır. Üçüncü taraf bileşenler için `THIRD_PARTY_NOTICES.md` dosyasına bakın.
+Bu eklenti `GPL-2.0-or-later` lisansı ile dağıtılır. Lisans ve `THIRD_PARTY_NOTICES.md`, kaynak deposunun yanı sıra oluşturulan eklenti paketine de eklenir.
