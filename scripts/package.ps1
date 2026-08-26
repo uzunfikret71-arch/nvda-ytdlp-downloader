@@ -9,8 +9,8 @@ $addonDir = Join-Path $root ".addon"
 $distDir = Join-Path $root "dist"
 $buildDir = Join-Path $root "build"
 $stageDir = Join-Path $buildDir "addon-package"
-$packagePath = Join-Path $distDir "ytdlpDownloader-$Version.nvda-addon"
-$zipPath = Join-Path $distDir "ytdlpDownloader-$Version.zip"
+$packagePath = Join-Path $distDir "Video-ve-Ses-Indirici-$Version.nvda-addon"
+$zipPath = Join-Path $distDir "Video-ve-Ses-Indirici-$Version.zip"
 
 if (-not (Test-Path -LiteralPath $addonDir)) {
 	throw "Add-on directory not found: $addonDir"
